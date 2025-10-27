@@ -1,0 +1,5 @@
+git make curl fzf
+code meld doxygen clang-format
+g++ gdb cmake pkg-config
+flex bison ragel libreadline-dev
+qt6-base-dev
