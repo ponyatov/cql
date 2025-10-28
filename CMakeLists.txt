@@ -16,7 +16,7 @@ message("-- |    linker: " "${LD}")
 message("-- |    binary: " "${CMAKE_INSTALL_PREFIX}/${BIN_OUTPUT_NAME}${CMAKE_EXECUTABLE_SUFFIX}")
 message("-- |")
 if(Qt6_FOUND)
-message("-- | GUI: ${Qt6_} ${Qt6_VERSION}")
+message("-- |        Qt: " "${Qt6_VERSION}")
 endif()
 message("-- |")
 
