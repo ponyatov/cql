@@ -5,9 +5,7 @@ project(${CMAKE_PROJECT_NAME} VERSION 0.0.1 LANGUAGES C CXX ASM)
 include(version)  # binary files naming by version & git branch/hash
 include(src)      # scan project for source code files
 include(syntax)   # parser generators (flex,yacc/bison,ragel,lemon,..)
-# include(qt)
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
-
+include(qt)       # portable GUI
 
 message("-- |")
 message("-- | toolchain: " ${CMAKE_CXX_COMPILER} " @ " ${CMAKE_TOOLCHAIN_FILE})
@@ -16,6 +14,10 @@ message("-- |    target: " "hw:" ${HW} " cpu:" ${CPU} " arch:" ${ARCH} " os:" ${
 message("-- |   startup: " "${S}")
 message("-- |    linker: " "${LD}")
 message("-- |    binary: " "${CMAKE_INSTALL_PREFIX}/${BIN_OUTPUT_NAME}${CMAKE_EXECUTABLE_SUFFIX}")
+message("-- |")
+if(Qt6_FOUND)
+message("-- | GUI: ${Qt6_} ${Qt6_VERSION}")
+endif()
 message("-- |")
 
 add_executable(${CMAKE_PROJECT_NAME}
