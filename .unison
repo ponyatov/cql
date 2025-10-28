@@ -1,0 +1,15 @@
+# Название профиля (опционально)
+label = cql sync
+
+# Корневые директории
+root = /home/dponyatov/cql
+root = ssh://dev01@10.120.100.39//home/dev01/cql
+
+# Автоматизация
+auto = true
+batch = true
+
+# Игнорирование специфичных файлов и кэшей
+ignore = Name {.git}
+ignore = Name {bin,doc/html,tmp,ref}
+ignore = Name {node_modules,venv,.env,.cache}
