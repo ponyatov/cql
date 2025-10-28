@@ -1,6 +1,3 @@
 git make curl fzf
-code meld doxygen
 g++ gdb cmake pkg-config build-essential clang-format
 flex bison ragel libreadline-dev
-qt6-base-dev qt6-tools-dev
-libsqlite3-dev libqt6sql6-sqlite
