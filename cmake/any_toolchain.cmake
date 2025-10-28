@@ -25,10 +25,10 @@ set    (APP ${CMAKE_PROJECT_NAME} )
 # include(  hw/${HW}/${HW}.cmake    )
 
 string(TOUPPER ${APP}  APP_ )
-string(TOUPPER ${HW}   HW_  )
-string(TOUPPER ${CPU}  CPU_ )
-string(TOUPPER ${ARCH} ARCH_)
-string(TOUPPER ${OS}   OS_  )
+# string(TOUPPER ${HW}   HW_  )
+# string(TOUPPER ${CPU}  CPU_ )
+# string(TOUPPER ${ARCH} ARCH_)
+# string(TOUPPER ${OS}   OS_  )
 
 add_compile_options(
     # -Wall -Wextra               # -Wpedantic

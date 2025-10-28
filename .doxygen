@@ -25,3 +25,5 @@ SORT_GROUP_NAMES       = YES
 REPEAT_BRIEF           = NO
 CALL_GRAPH             = YES
 CALLER_GRAPH           = YES
+GENERATE_TREEVIEW      = NO
+# HTML_EXTRA_STYLESHEET  = doc/custom.css doc/custom_dark_theme.css
