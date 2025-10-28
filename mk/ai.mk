@@ -1,4 +1,5 @@
 .PHONY: ai tmp/$(APP).ai.md
 ai: tmp/$(APP).ai.md
 tmp/$(APP).ai.md:
-	cat $(HOME)/metadoc/$(APP)/$(APP).md $(HOME)/metadoc/$(APP)/*.md > $@ ; touch $@
+	rsync -r $(HOME)/metadoc/$(APP)/ doc/
+	cat README.md doc/*.md $(C) $(H) $(LX) > $@ ; touch $@
