@@ -27,5 +27,5 @@ extern int yyparse();                  ///< parser
 extern void yyerror(std::string msg);  ///< syntax error callback
 /// @}
 
-#include "cql.yacc.hpp"
+#include "json.yacc.hpp"
 /// @}
