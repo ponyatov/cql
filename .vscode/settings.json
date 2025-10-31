@@ -59,7 +59,8 @@
     "cmake.saveBeforeBuild" :  true,
     "cmake.debugConfig"     : {
         "cwd" :   "${workspaceFolder}",
-        "args": [ "lib/${workspaceFolderBasename}.ini" ] },
+        "args": [ "~/MultithreadedGeneratorUDP/data/config.json"]},
+        // "lib/${workspaceFolderBasename}.ini" ] },
     "cmake.allowCommentsInPresetsFile" : true,
     "cmake.ignoreCMakeListsMissing"    : true,
 
