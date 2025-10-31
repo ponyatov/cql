@@ -1,10 +1,7 @@
 %{
-    #include "json.hpp"
+    #include "syntax.hpp"
+    char *yyfile = nullptr;
 %}
-
-%option c++
-%option yyclass="json"
-%option prefix="json_"
 
 %option noyywrap yylineno
 %%
