@@ -2,24 +2,30 @@
     #include "app.hpp"
 %}
 
-%defines %union { int n; float f; char c; std::string *s; bool b; }
+%defines %union { uint n; float f; char c; std::string *s; bool b; }
 
 %token<c> CHAR
 %token<s> STR
 %token<b> BOOL
-%token<n> INT
+%token<n> UINT
 
 %token LC RC LQ RQ COLON COMMA
 
 %token baseCPUIndex
 
 %%
-JSON:| JSON ex
+JSON:| JSON ex | JSON generic | JSON ignore
 
-ex  : baseCPUIndex COLON INT { config.base_cpu_index = $3; }
-    | STR  { std::clog << "\nstr:"  << *$1; }
-    | BOOL { std::clog << "\nbool:" <<  $1; }
-    | CHAR { std::clog << "\nchar:" <<  $1; }
-    | LC | RC
-    | LQ | RQ
-    | COLON | COMMA
+ex  : baseCPUIndex COLON UINT {
+        assert( $3 >= 0 && $3 <= 24);
+        config.base_cpu_index = $3;
+        std::clog << "\nconfig.base_cpu_index = " << $3; }
+
+generic : CHAR { std::clog << "\nchar:" <<  $1; }
+        | UINT { std::clog << "\nuint:" <<  $1; }
+        | STR  { std::clog << "\nstr:"  << *$1; }
+        | BOOL { std::clog << "\nbool:" <<  $1; }
+
+ignore  : LC | RC
+        | LQ | RQ
+        | COLON | COMMA

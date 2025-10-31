@@ -10,6 +10,8 @@
 
 %%
 
+\"baseCPUIndex\"    { return baseCPUIndex; }
+
 \"          {BEGIN(str); sp=0; }
 <str>\"     {BEGIN(INITIAL); s[sp]=0; yylval.s = new std::string(s); return STR;}
 <str>.      {s[sp++] = yytext[0];}
@@ -25,5 +27,7 @@
 
 "true"          { yylval.b = true ; return BOOL; }
 "false"         { yylval.b = false; return BOOL; }
+
+[0-9]+          { yylval.n = atoi(yytext); return UINT; }
 
 .               { yylval.c = yytext[0]; return CHAR; }

@@ -1,5 +1,5 @@
 #include "config.hpp"
 
 CONFIG config = {
-    0  // base_cpu_index
+    .base_cpu_index = 0  //
 };

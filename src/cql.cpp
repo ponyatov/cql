@@ -11,6 +11,7 @@ int main(int argc, char *argv[]) {
         fclose(yyin);
         yyfile = nullptr;
     }
+    std::clog << '\n';
     return 0;
 }
 
