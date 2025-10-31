@@ -14,11 +14,16 @@ struct SENSOR {
     IP4 src;
     IP4 dst;
     uint32_t sn;
+    std::string dataPath;
 };
 
 struct GROUP {
     std::string name;
     uint duration;
+    bool loop;
+    uint freq;
+    uint packetSize;
+    std::vector<SENSOR> sensors;
 };
 
 struct CONFIG {

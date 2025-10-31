@@ -16,6 +16,14 @@
             "problemMatcher" : []
         },
         {
+            "label"          : "git: checkout .vscode",
+            "type"           : "shell",
+            "command"        : "git checkout .vscode/settings.json",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": false, "focus": false, "reveal": "silent", "close": true},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
             "label"          : "make: sync",
             "type"           : "shell",
             "command"        : "make sync",
