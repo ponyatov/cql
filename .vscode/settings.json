@@ -40,14 +40,12 @@
     // C++
     "[c]"  : {
         "editor.defaultFormatter" : "xaver.clang-format",
-        "editor.formatOnSave": true
-    },
+        "editor.formatOnSave": true },
     "[cpp]": {
         "editor.defaultFormatter" : "xaver.clang-format",
-        "editor.formatOnSave": true
-    },
+        "editor.formatOnSave": true },
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
-    "C_Cpp.files.exclude": { "ref":true },
+    "C_Cpp.files.exclude": { "ref":false },
 
     // CMake
     "cmake.sourceDirectory" : "${workspaceFolder}",
@@ -63,6 +61,13 @@
         // "lib/${workspaceFolderBasename}.ini" ] },
     "cmake.allowCommentsInPresetsFile" : true,
     "cmake.ignoreCMakeListsMissing"    : true,
+
+    // Python
+    // "python.defaultInterpreterPath":  "${workspaceFolder}/bin/python3",
+    // "autopep8.path"                : ["${workspaceFolder}/bin/autopep8"],
+    "autopep8.args"                : ["--ignore","E26,E302,E305,E401,E402,E701,E702"],
+    "python.analysis.extraPaths"   : ["${workspaceFolder}/src", "${workspaceFolder}/lib"],
+    "[python]": { "editor.defaultFormatter" : "ms-python.autopep8" },
 
     // MinGW/MSYS2
     "terminal.integrated.defaultProfile.windows": "UCRT64",

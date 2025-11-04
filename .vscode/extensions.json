@@ -18,5 +18,13 @@
         // parser
         "daohong-emilio.yash",
         "rreverser.ragel",
+        // // embedded
+        // "dan-c-underwood.arm",
+        // "zixuanwang.linkerscript",
+        // "ms-vscode.vscode-serial-monitor",
+        // "espressif.esp-idf-extension",
+        // Python
+        "ms-python.python",
+        "ms-python.autopep8",
     ]
 }
