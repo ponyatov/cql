@@ -24,7 +24,7 @@ struct GROUP {
     bool loop;
     uint freq;
     uint packetSize;
-    std::vector<SENSOR> sensors;
+    std::vector<SENSOR*> sensors;
 };
 
 struct CONFIG {
