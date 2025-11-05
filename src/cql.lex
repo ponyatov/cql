@@ -11,11 +11,18 @@
 
 %%
 
+"\"sn\""        {return SN;}
+
 \"              {BEGIN(str); sp = 0; }
 <str>\"         {BEGIN(INITIAL); s[sp] = 0; yylval.o = new Str(s); return STR; }
 <str>.          {s[sp++] = yytext[0]; }
 
-:               {return COLON;}
+":"             {return COLON;}
+","             {return COMMA;}
+"["             {return LQ;}
+"]"             {return RQ;}
+"{"             {return LC;}
+"}"             {return RC;}
 
 "true"          {yylval.o = new Bool(true ); return BOOL;}
 "false"         {yylval.o = new Bool(false); return BOOL;}

@@ -17,6 +17,9 @@ extern void arg(int argc, char *argv) {  //
 }
 
 extern void yyerror(std::string msg) {  //
+    std::cerr << "\n\n"
+              << yyfile << ':' << yylineno << ' ' << msg << " [" << yytext
+              << "]\n\n";
     exit(-1);
 }
 
@@ -62,3 +65,20 @@ std::string Bool::val() {
 
 Str::Str(char *V) : Object(), value(V) {}
 std::string Str::val() { return value; }
+
+sn::sn(std::string V) : Object(), value(atoi(V.c_str())) {}
+
+std::string sn::val() {
+    std::ostringstream os;
+    os << '#' << value;
+    return os.str();
+}
+
+param::param(std::string name, Object *value)
+    : Object(), name(name), value(value) {}
+
+std::string param::val() {
+    std::ostringstream os;
+    os << name << '=' << value->dump();
+    return os.str();
+}

@@ -42,6 +42,19 @@ struct Str : Object {
     std::string val();
 };
 
+struct param : Object {
+    std::string name;
+    Object *value;
+    param(std::string name, Object *value);
+    std::string val();
+};
+
+struct sn : Object {
+    uint32_t value;
+    sn(std::string);
+    std::string val();
+};
+
 extern int yylex();
 extern int yylineno;
 extern FILE *yyin;
