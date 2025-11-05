@@ -69,21 +69,27 @@ if __name__ == "__main__":
         c.cpuindex.start = f'.baseCPUIndex = {config["baseCPUIndex"]},'
         #
         for g in config['groups']:
-            name = g["name"]
-            assert not re.match(r'^[0-9]+', name)
-            h // f'extern GROUP {name};'
-            c.groups // f'&{name},'
+            gname = g["name"]
+            assert not re.match(r'^[0-9]+', gname)
+            h // f'extern GROUP {gname};'
+            c.groups // f'&{gname},'
             #
-            c[name] = (S(f'GROUP {name} = {{', '};') // f'.name = "{name}",')
-            c // c[name]
-            c[name] // f'.duration = {g["duration"]},'
+            c[gname] = (S(f'GROUP {gname} = {{', '};') //
+                        f'.name = "{gname}",')
+            c // c[gname]
+            c[gname] // f'.duration = {g["duration"]},'
             if g["loop"]:
-                c[name] // f'.loop = true,'
+                c[gname] // f'.loop = true,'
             else:
-                c[name] // f'.loop = false,'
-            c[name] // f'.freq = {g["freq"]},'
-            c[name] // f'.packetSize = {g["packetSize"]},'
-            c[name] // S('.sensors = {', '},')
-
+                c[gname] // f'.loop = false,'
+            c[gname] // f'.freq = {g["freq"]},'
+            c[gname] // f'.packetSize = {g["packetSize"]},'
+            c[gname]['sensors'] = S(
+                '.sensors = {', '},'); c[gname] // c[gname]['sensors']
+        #
+            for s in g['sensors']:
+                sname = s['name']
+                h // f'extern SENSOR {sname};'
+                c[gname]['sensors'] // f'&{sname},'
         #
         c.write(); h.write()
