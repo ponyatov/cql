@@ -1,0 +1,6 @@
+%{
+    #include "cql.hpp"
+%}
+
+%%
+JSON:
