@@ -3,29 +3,31 @@
 #include <string>
 #include <vector>
 
+typedef std::string path;
+
 struct udp {
     uint8_t ip[4];
     uint16_t port;
 };
 
-struct sensor {
+struct SENSOR {
     std::string name;
     udp src;
     udp dst;
     uint32_t sn;
-    std::string dataPath;
+    path dataPath;
 };
 
-struct group {
+struct GROUP {
     std::string name;
     uint duration;
     bool loop;
     uint freq;
     uint packetSize;
-    std::vector<sensor> sensors;
+    std::vector<SENSOR> sensors;
 };
 
-struct config {
+struct CONFIG {
     uint baseCPUIndex;
-    std::vector<group> groups;
+    std::vector<GROUP*> groups;
 };
