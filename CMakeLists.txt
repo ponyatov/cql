@@ -20,6 +20,8 @@ message("-- |")
 if(Qt6_FOUND)
 message("-- |        Qt: " "${Qt6_VERSION}")
 endif()
+message("-- | ${JSON}")
+message("-- | ${C}")
 message("-- | ${H}")
 
 add_executable(${CMAKE_PROJECT_NAME}

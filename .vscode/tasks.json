@@ -16,14 +16,6 @@
             "problemMatcher" : []
         },
         {
-            "label"          : "python: codegen",
-            "type"           : "shell",
-            "command"        : "./src/json2cpp.py etc/cql.json",
-            "problemMatcher" : [],
-            "presentation"   : {"showReuseMessage": false, "focus": false, "close": false},
-            "group"          : {"kind": "build", "isDefault": true}
-        },
-        {
             "label"          : "git: checkout .vscode",
             "type"           : "shell",
             "command"        : "git checkout .vscode/settings.json",
