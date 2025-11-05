@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+typedef std::string NAME;
+
 struct IP4 {
     uint8_t ip[4];
     uint16_t port;
