@@ -4,13 +4,16 @@ import os, sys, re
 import json
 
 if __name__ == "__main__":
-    json,cpp,hpp = sys.argv[1:3+1]
+    jsn, cpp, hpp = sys.argv[1:3 + 1]
     hpp_base = hpp.split('/')[-1]
-    with open(json,'r') as json:
-        with open(cpp,'w') as cpp:
-            print(f'#include "{hpp_base}"',file=cpp)
-            with open(hpp,'w') as hpp:
-                pass
+    with open(jsn, 'r') as jsn:
+        with open(cpp, 'w') as cpp:
+            with open(hpp, 'w') as hpp:
+                print(f'#include "{hpp_base}"', file=cpp)
+                print(f'#pragma once', file=hpp)
+                print(f'#include "types.hpp"', file=hpp)
+                config = json.load(jsn)
+                print(config)
 
     # with open(sys.argv[1], 'r') as jsn:
     #     with open(sys.argv[2], 'w') as cpp:

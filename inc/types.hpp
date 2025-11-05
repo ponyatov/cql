@@ -12,18 +12,20 @@ struct sensor {
     std::string name;
     udp src;
     udp dst;
+    uint32_t sn;
+    std::string dataPath;
 };
 
 struct group {
     std::string name;
-    int duration;
+    uint duration;
     bool loop;
-    int freq;
-    int packetSize;
+    uint freq;
+    uint packetSize;
     std::vector<sensor> sensors;
 };
 
 struct config {
-    int baseCPUIndex;
+    uint baseCPUIndex;
     std::vector<group> groups;
 };
