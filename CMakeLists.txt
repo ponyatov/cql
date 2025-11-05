@@ -7,6 +7,8 @@ include(src)      # scan project for source code files
 include(syntax)   # parser generators (flex,yacc/bison,ragel,lemon,..)
 include(qt)       # portable GUI
 
+include(json2cpp)   # JSON config generator
+
 message("-- |")
 message("-- | toolchain: " ${CMAKE_CXX_COMPILER} " @ " ${CMAKE_TOOLCHAIN_FILE})
 message("-- |      host: " ${CMAKE_HOST_SYSTEM_NAME}-${CMAKE_HOST_SYSTEM_VERSION})
@@ -18,7 +20,7 @@ message("-- |")
 if(Qt6_FOUND)
 message("-- |        Qt: " "${Qt6_VERSION}")
 endif()
-message("-- |")
+message("-- | ${H}")
 
 add_executable(${CMAKE_PROJECT_NAME}
     ${C}  ${H}          # C/C++ source

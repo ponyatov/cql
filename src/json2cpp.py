@@ -9,5 +9,6 @@ if __name__ == "__main__":
             print('#pragma once', file=hpp)
             jsn = json.load(jsn)
             print(f'#define baseCPUIndex {jsn["baseCPUIndex"]}',file=hpp)
+            print(f'#define groups_sz {len(jsn["groups"])}',file=hpp)
             print("")
             print(jsn)
