@@ -9,10 +9,19 @@ class S:
         self.end = end
         self.nest = []
 
-    def __str__(self):
-        ret = f'{self.start}\n'
-        ret += f'{self.end}\n' if self.end else ''
+    def __floordiv__(self, s):
+        if isinstance(s, str): s = S(s)
+        self.nest.append(s); return self
+
+    def gen(self, depth=0):
+        def tab(depth): return ' ' * 4 * depth
+        ret = ''
+        ret += f'{tab(depth)}{self.start}\n' if self.start else ''
+        for i in self.nest: ret += i.gen(depth + 1)
+        ret += f'{tab(depth)}{self.end}\n' if self.end else ''
         return ret
+
+    def __str__(self): return self.gen()
 
 class SRC:
     def __init__(self, path):
@@ -33,7 +42,9 @@ class C(SRC):
     def __init__(self, path):
         super().__init__(path)
         self // f'#include "{self.base}.hpp"'
-        self // S('CONFIG config = {', '}')
+        self.config = S('CONFIG config = {', '};'); self // self.config
+        self.cpuindex = S('.baseCPUIndex = 0,'); self.config // self.cpuindex
+        self.groups = S('.groups = {', '},'); self.config // self.groups
 
 class H(SRC):
     def __init__(self, path):
@@ -46,6 +57,8 @@ if __name__ == "__main__":
     hpp_base = hpp.split('/')[-1]
     with open(jsn, 'r') as jsn:
         c = C(cpp); h = H(hpp)
+        config = json.load(jsn)
+        c.cpuindex.start = f'.baseCPUIndex = {config["baseCPUIndex"]},'
         c.write(); h.write()
         # #
         # print(f'#include "{hpp_base}"', file=cpp)
